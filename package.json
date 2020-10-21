@@ -1,0 +1,41 @@
+{
+  "name": "@bartje321/botje321",
+  "version": "1.0.0",
+  "description": "Twitch bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node $NODE_DEBUG_OPTION  --trace-warnings -r tsconfig-paths/register -r ts-node/register src/Main.ts",
+    "build": "rm -rf ./dist && node_modules/typescript/bin/tsc && cp -r src/Proto dist && echo exports.default = \\\"`git rev-parse HEAD`\\\"\\; > dist/version.js",
+    "lint": "tslint --project .",
+    "check": "npm run lint && npm run build && npm run test-dist && npm run audit",
+    "audit": "(npm audit || true) && (npm outdated || true)"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.11",
+    "http-server": "^0.12.3",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.1.3",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "node-cache": "^5.1.2",
+    "protobufjs": "^6.10.2",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.19",
+    "twitch": "^4.3.5",
+    "twitch-api-call": "^4.3.5",
+    "twitch-auth": "^4.3.5",
+    "twitch-chat-client": "^4.3.5",
+    "twitch-pubsub-client": "^4.3.5",
+    "twitch-webhooks": "^4.3.5",
+    "typeorm": "^0.2.29"
+  }
+}

@@ -1,0 +1,51 @@
+{
+    "extends": "tslint:latest",
+    "rulesDirectory": [
+        "rules"
+    ],
+    "rules": {
+        "jsdoc-require": true,
+        "indent": [true, "spaces", 4],
+        "max-line-length": [false],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "object-literal-sort-keys": false,
+        "no-empty-interface": false,
+        "switch-default": false,
+        "prefer-readonly": true,
+        "static-this": true,
+        "array-type": [true, "array-simple"],
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "private-static-field",
+                    "protected-static-field",
+                    "public-static-method",
+                    "protected-static-method",
+                    "private-static-method",
+                    "private-instance-field",
+                    "protected-instance-field",
+                    "private-constructor",
+                    "protected-constructor",
+                    "public-constructor",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
+        ],
+        "object-literal-shorthand": [true, "never"],
+        "no-shadowed-variable": false,
+        "no-unused-expression": [true, "allow-new"],
+        "no-implicit-dependencies": false,
+        "no-submodule-imports": false,
+        "jsdoc-format": true,
+        "max-classes-per-file": false,
+        "variable-name": [true],
+        "no-conditional-assignment": false,
+        "no-conditional-assignment-except-while": true
+    }
+}

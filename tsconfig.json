@@ -1,0 +1,33 @@
+{
+	"compilerOptions": {
+        "experimentalDecorators": true,
+		"target": "esnext",
+		"sourceMap": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+
+		"newLine": "lf",
+		"removeComments" : true,
+
+		"typeRoots" : ["./node_modules/@types"],
+		"types": [
+            "node",
+			"./global"
+		],
+
+		"module": "commonjs",
+		"moduleResolution": "node",
+
+		"strict": true,
+		"outDir": "dist/",
+		"baseUrl": "src/",
+
+		"noErrorTruncation": true,
+        "emitDecoratorMetadata": true
+	},
+	"compileOnSave": true,
+	"include": [
+		"src/**/*"
+	]
+}
