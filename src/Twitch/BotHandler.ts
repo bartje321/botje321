@@ -13,6 +13,7 @@ import {PubSubClient} from "twitch-pubsub-client";
 import {PubSubListener} from "twitch-pubsub-client/lib/PubSubListener";
 import {PubSubRedemptionMessage} from "twitch-pubsub-client/lib/Messages/PubSubRedemptionMessage";
 import {QueueModule} from "Twitch/Module/QueueModule";
+import {EchoCommandModule} from "Twitch/Module/EchoCommandModule";
 
 /** Chat bot handler */
 export class BotHandler {
@@ -57,6 +58,7 @@ export class BotHandler {
         this.modules.push(new GreeterModule(channelHandler, chatClient));
         this.modules.push(new ShoutoutModule(channelHandler, chatClient));
         this.modules.push(new QueueModule(channelHandler, chatClient));
+        this.modules.push(new EchoCommandModule(channelHandler, chatClient));
     }
 
 
@@ -116,11 +118,11 @@ export class BotHandler {
             module.onMessage(chatUser, message);
         }
 
-        const match = /^!([^\s]+)(?: (.*))?/i.exec(message);
+        const match = /^!([^\s]+)(?:\s+(.*))?/i.exec(message);
         if (match) {
             const [, command, args = ""] = match;
             for (const module of this.modules) {
-                if (await module.onCommand.call(module, chatUser, command, ...(args.split(/\s/)))) {
+                if (await module.onCommand.call(module, chatUser, command.toLowerCase(), ...(args.split(/\s/)))) {
                     break;
                 }
             }

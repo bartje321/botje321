@@ -95,7 +95,7 @@ export class ShoutoutModule extends Module {
             return false;
         }
 
-        const name = args.length === 1 ? args[0] : args[1];
+        const name = (args.length === 1 ? args[0] : args[1]).replace(/^@/, "");
         const chatter = await this.getChannel().findChatter(name);
         if (!chatter) {
             this.say("/me couldn't find someone named " + name + " on this channel");

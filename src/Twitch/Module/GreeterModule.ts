@@ -37,6 +37,12 @@ export class GreeterModule extends Module {
 
             return true;
         }
+        if (message.rewardId === "1026ea6f-9840-4005-9ad7-20ef4c4ecd0c") {
+            chatUser.config.set("greeter.custom", message.message);
+            this.say(message.message, {user: chatUser.getName()})
+
+            return true;
+        }
         return false;
     }
 

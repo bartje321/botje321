@@ -34,6 +34,9 @@ export class QueueModule extends Module {
      */
     public async onCommand(chatUser: BotUser, command: string, ...args: string[]): Promise<boolean> {
         // Override me
+        // shieldser9 - T3B-TJT-5XG
+        // 3G00D5Y0U - K9F-Q71-8SG
+        // Mr_CP0 - WX2-QYK-7DG
         switch (command) {
             case "add": {
                 if (!open) {
@@ -44,6 +47,10 @@ export class QueueModule extends Module {
                 // TODO validate code.
                 if (!code) {
                     this.say("Use \"!add LEV-ELC-ODE\" to add your level.");
+                    return true;
+                }
+                if (/mkg.?3sq.?2yf/i.test(code)) {
+                    this.say("Shieldser... NO");
                     return true;
                 }
                 if (list.find((v) => v.twitchId === chatUser.getTwitchId())) {
@@ -70,6 +77,10 @@ export class QueueModule extends Module {
                 // TODO validate code.
                 if (!code) {
                     this.say("Use \"!replace LEV-ELC-ODE\" to replace your level.");
+                    return true;
+                }
+                if (/mkg.?3sq.?2yf/i.test(code)) {
+                    this.say("Shieldser... NO");
                     return true;
                 }
                 const entry = list.find((v) => v.twitchId === chatUser.getTwitchId());
